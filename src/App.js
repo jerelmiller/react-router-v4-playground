@@ -1,16 +1,25 @@
-import { BrowserRouter } from 'react-router'
+import { BrowserRouter, Link, Match } from 'react-router'
 import React from 'react'
-import './App.css'
+
+const Home = () => <p>This is the home page</p>
+
+const Simple = () => <p>This is rendered simply</p>
 
 const App = () =>
   <BrowserRouter>
-    <div className='App'>
-      <div className='App-header'>
-        <h2>Welcome to React</h2>
-      </div>
-      <p className='App-intro'>
-        To get started, edit <code>src/App.js</code> and save to reload.
-      </p>
+    <div>
+      <nav>
+        <ul>
+          <li>
+            <Link to='/'>Home</Link>
+          </li>
+          <li>
+            <Link to='/Simple'>Simple</Link>
+          </li>
+        </ul>
+      </nav>
+      <Match exactly pattern='/' component={ Home } />
+      <Match pattern='/simple' component={ Simple } />
     </div>
   </BrowserRouter>
 
